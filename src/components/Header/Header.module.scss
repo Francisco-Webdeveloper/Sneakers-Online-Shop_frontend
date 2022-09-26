@@ -1,0 +1,17 @@
+.headerContainer {
+  width: 100vw;
+  padding: 20px 22px 25px 22px;
+  background: var(--primary-color-pale-orange);
+  display: flex;
+  justify-content: space-between;
+
+  .menuContainer {
+    margin-right: 14px;
+  }
+
+  .avatarContainer {
+    margin-left: 22px;
+    width: 24px;
+    height: 24px;
+  }
+}
