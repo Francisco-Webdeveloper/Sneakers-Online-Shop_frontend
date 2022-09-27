@@ -7,11 +7,20 @@ import avatar from "../../assets/images/image-avatar.png";
 const Header = () => {
   return (
     <header className={styles.headerContainer}>
-      <div>
-        <img className={styles.menuContainer} src={menu} alt="menu" />
+      <div className={styles.menuAndLogoContainer}>
+        <img className={styles.mobileMenu} src={menu} alt="menu" />
         <img src={logo} alt="logo" />
+        <nav>
+          <ul className={styles.desktopMenu}>
+            <li>Collections</li>
+            <li>Men</li>
+            <li>Women</li>
+            <li>About</li>
+            <li>Contact</li>
+          </ul>
+        </nav>
       </div>
-      <div>
+      <div className={styles.cartAndAvatarContainer}>
         <img src={cart} alt="cart" />
         <img className={styles.avatarContainer} src={avatar} alt="avatar" />
       </div>
