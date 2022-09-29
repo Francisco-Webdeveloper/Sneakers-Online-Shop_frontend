@@ -1,26 +1,14 @@
-import image1 from "../../../assets/images/image-product-1.jpg";
-import image2 from "../../../assets/images/image-product-2.jpg";
-import image3 from "../../../assets/images/image-product-3.jpg";
-import image4 from "../../../assets/images/image-product-4.jpg";
 import styles from "./ProductImages.module.scss";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { SneakerImages } from "../../../types/SneakerImages";
 
-interface IProps {
-  images: {
-    image1: string;
-    imageThumbnail1: string;
-    image2: string;
-    imageThumbnail2: string;
-    image3?: string;
-    imageThumbnail3?: string;
-    image4?: string;
-    imageThumbnail4?: string;
-  };
+interface Props {
+  images: SneakerImages;
 }
 
-const ProductImages = ({ images }: IProps): JSX.Element => {
-  console.log({ images });
+const ProductImages = ({ images }: Props): JSX.Element => {
+  const { image1, image2, image3, image4 } = images;
 
   return (
     <Carousel fade>
