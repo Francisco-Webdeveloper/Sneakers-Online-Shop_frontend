@@ -1,31 +1,10 @@
 import { useEffect, useState } from "react";
+import { Sneaker } from "../../types/Sneaker";
 import ProductDescription from "./ProductDescription";
 import ProductImages from "./ProductImages";
 
-export interface IState {
-  sneakers: {
-    _id: string;
-    brand: string;
-    name: string;
-    description: string;
-    price: number;
-    discountPrice: number;
-    stock: number;
-    url: {
-      image1: string;
-      imageThumbnail1: string;
-      image2: string;
-      imageThumbnail2: string;
-      image3?: string;
-      imageThumbnail3?: string;
-      image4?: string;
-      imageThumbnail4?: string;
-    };
-  }[];
-}
-
 const Product = (): JSX.Element => {
-  const [sneakers, setSneakers] = useState<IState["sneakers"]>([]);
+  const [sneakers, setSneakers] = useState<Sneaker[]>([]);
 
   const fetchSneakers = async () => {
     const response = await fetch("http://localhost:4000/sneakers");
