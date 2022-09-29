@@ -50,6 +50,8 @@
     display: none;
     color: var(--neutral-dark-grayish-blue);
     font-size: 15px;
+    margin-bottom: 0;
+    padding-left: 44px;
     cursor: pointer;
 
     li:not(:last-child) {
