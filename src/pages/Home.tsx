@@ -1,22 +1,9 @@
-import { useEffect, useState } from "react";
-import { Sneaker } from "../types/Sneaker";
+import { useContext } from "react";
+import { SneakersContext } from "../context/sneakersContext";
 import styles from "./Home.module.scss";
 
 const Home = (): JSX.Element => {
-  const [sneakers, setSneakers] = useState<Sneaker[]>([]);
-
-  const fetchSneakers = async () => {
-    const response = await fetch("http://localhost:4000/sneakers");
-    const json = await response.json();
-
-    if (response.ok) {
-      setSneakers(json);
-    }
-  };
-
-  useEffect(() => {
-    fetchSneakers();
-  }, []);
+  const sneakers = useContext(SneakersContext);
 
   return (
     <div className={styles.homeContainer}>
