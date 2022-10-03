@@ -3,13 +3,16 @@ import menu from "../../assets/icons/icon-menu.svg";
 import cart from "../../assets/icons/icon-cart.svg";
 import logo from "../../assets/icons/logo.svg";
 import avatar from "../../assets/images/image-avatar.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <header className={styles.headerContainer}>
       <div className={styles.menuAndLogoContainer}>
         <img className={styles.mobileMenu} src={menu} alt="menu" />
-        <img src={logo} alt="logo" />
+        <Link to={"/"}>
+          <img src={logo} alt="logo" />
+        </Link>
         <nav>
           <ul className={styles.desktopMenu}>
             <li>Collections</li>
