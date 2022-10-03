@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { SneakersContext } from "../context/sneakersContext";
+import { Link } from "react-router-dom";
 import styles from "./Home.module.scss";
 
 const Home = (): JSX.Element => {
@@ -14,24 +15,32 @@ const Home = (): JSX.Element => {
           );
 
           return (
-            <div className={styles.productContainer} key={_id}>
+            <Link
+              to={`/sneaker/${_id}`}
+              className={styles.productContainer}
+              key={_id}
+            >
               <img className={styles.image} src={url.image1} alt="product" />
-              <h3 className={styles.brand}>{brand}</h3>
-              <h2 className={styles.name}>{name}</h2>
-              <div className={styles.priceAndDiscount}>
-                <div className={styles.discountContainer}>
-                  <h2 className={styles.discountPrice}>${discountPrice}.00</h2>
-                  <div className={styles.discountBox}>
-                    <p>{discountInPercentage}%</p>
+              <div className={styles.productDetailsContainer}>
+                <h3 className={styles.brand}>{brand}</h3>
+                <h2 className={styles.name}>{name}</h2>
+                <div className={styles.priceAndDiscountContainer}>
+                  <div className={styles.discountContainer}>
+                    <h2 className={styles.discountPrice}>
+                      ${discountPrice}.00
+                    </h2>
+                    <div className={styles.discountBox}>
+                      <p>{discountInPercentage}%</p>
+                    </div>
                   </div>
+                  <p className={styles.price}>
+                    <span>
+                      <b>${price}.00</b>
+                    </span>
+                  </p>
                 </div>
-                <p className={styles.price}>
-                  <span>
-                    <b>${price}.00</b>
-                  </span>
-                </p>
               </div>
-            </div>
+            </Link>
           );
         })}
     </div>
