@@ -1,0 +1,32 @@
+.addToCartContainer {
+  margin: 24px 22px;
+
+  .input {
+    display: flex;
+    justify-content: space-between;
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  .addToCartButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    background-color: var(--primary-color-orange);
+
+    .cartIcon path {
+      fill: #fff;
+    }
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
