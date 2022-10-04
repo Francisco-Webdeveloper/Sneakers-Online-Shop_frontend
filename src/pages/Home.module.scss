@@ -60,6 +60,7 @@
     padding-right: 20px;
     font-size: 26px;
     margin: 0;
+    font-weight: 700;
   }
 
   .discountBox {
@@ -77,9 +78,8 @@
   .price {
     color: #a5a5ac;
     font-size: 18px;
-    font-weight: 700;
     text-decoration: line-through;
-    text-decoration-color: var(--primary-color-orange);
+    text-decoration-thickness: 2px;
     margin: 0;
   }
 }

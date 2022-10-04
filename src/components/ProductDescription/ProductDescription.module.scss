@@ -1,0 +1,25 @@
+.descriptionContainer {
+  margin: 24px 22px;
+
+  .brand {
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--primary-color-orange);
+    margin-bottom: 16px;
+  }
+
+  .name {
+    width: 300px;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    line-height: 22px;
+    color: var(--neutral-dark-grayish-blue);
+  }
+}
