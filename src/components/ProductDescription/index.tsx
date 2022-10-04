@@ -12,11 +12,11 @@ const ProductDescription = ({
   description,
 }: IProps): JSX.Element => {
   return (
-    <div className={styles.descriptionContainer}>
-      <h2>{brand}</h2>
-      <h3>{name}</h3>
-      <p>{description}</p>
-    </div>
+    <section className={styles.descriptionContainer}>
+      <h3 className={styles.brand}>{brand}</h3>
+      <h2 className={styles.name}>{name}</h2>
+      <p className={styles.description}>{description}</p>
+    </section>
   );
 };
 
