@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductImages from "../components/ProductImages";
 import ProductDescription from "../components/ProductDescription";
+import ProductPrice from "../components/ProductPrice";
+import AddProductToCart from "../components/AddProductToCart";
 
 const ProductPage = (): JSX.Element => {
   const { sneakerId } = useParams();
-  console.log({ sneakerId });
 
   const [sneaker, setSneaker] = useState<Sneaker | null>(null);
 
@@ -32,6 +33,11 @@ const ProductPage = (): JSX.Element => {
             name={sneaker.name}
             description={sneaker.description}
           />
+          <ProductPrice
+            price={sneaker.price}
+            discountPrice={sneaker.discountPrice}
+          />
+          <AddProductToCart />
         </div>
       )}
     </>
