@@ -1,0 +1,45 @@
+.priceAndDiscountContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  margin: 24px 22px;
+
+  @media (min-width: 576px) {
+    display: block;
+  }
+
+  .discountContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .discountPrice {
+    padding-right: 20px;
+    font-size: 26px;
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .discountBox {
+    color: var(--primary-color-orange);
+    font-weight: 700;
+    font-size: 16px;
+    background-color: #f3dac0;
+    height: 30px;
+    line-height: 30px;
+    width: 50px;
+    text-align: center;
+    border-radius: 4px;
+  }
+
+  .price {
+    color: #a5a5ac;
+    font-size: 18px;
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    margin: 0;
+  }
+}
