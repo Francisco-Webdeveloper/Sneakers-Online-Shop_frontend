@@ -12,7 +12,10 @@ const ProductPage = (): JSX.Element => {
   const [sneaker, setSneaker] = useState<Sneaker | null>(null);
 
   const fetchSneaker = async () => {
-    const response = await fetch(`http://localhost:4000/sneakers/${sneakerId}`);
+    console.log(`/sneakers/${sneakerId}`);
+    const response = await fetch(
+      `${import.meta.env.VITE_API_BASE_URL}/sneakers/${sneakerId}`
+    );
     const json = await response.json();
     if (response.ok) {
       setSneaker(json);
