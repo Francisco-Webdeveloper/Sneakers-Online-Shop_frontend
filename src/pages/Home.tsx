@@ -1,10 +1,25 @@
-import { useContext } from "react";
-import { SneakersContext } from "../context/sneakersContext";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Home.module.scss";
+import { Sneaker } from "../types/Sneaker";
 
 const Home = (): JSX.Element => {
-  const sneakers = useContext(SneakersContext);
+  const [sneakers, setSneakers] = useState<Sneaker[]>([]);
+
+  const fetchSneakers = async () => {
+    const response = await fetch(
+      `${import.meta.env.VITE_API_BASE_URL}/sneakers`
+    );
+    const json = await response.json();
+
+    if (response.ok) {
+      setSneakers(json);
+    }
+  };
+
+  useEffect(() => {
+    fetchSneakers();
+  }, []);
 
   return (
     <div className={styles.homeContainer}>
