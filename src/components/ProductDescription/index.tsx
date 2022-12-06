@@ -1,6 +1,6 @@
 import styles from "./ProductDescription.module.scss";
 
-interface IProps {
+interface Props {
   brand: string;
   name: string;
   description: string;
@@ -10,7 +10,7 @@ const ProductDescription = ({
   brand,
   name,
   description,
-}: IProps): JSX.Element => {
+}: Props): JSX.Element => {
   return (
     <section className={styles.descriptionContainer}>
       <h3 className={styles.brand}>{brand}</h3>
