@@ -1,0 +1,23 @@
+.productPageContainer {
+  @media (min-width: 992px) {
+    display: flex;
+    justify-content: space-between;
+    gap: 56px;
+    margin: 60px 100px;
+  }
+  @media (min-width: 1200px) {
+    margin: 90px 160px;
+  }
+  @media (min-width: 1600px) {
+    margin: 90px 260px;
+  }
+  @media (min-width: 1800px) {
+    margin: 90px 340px;
+  }
+
+  .descriptioAndFormContainer {
+    @media (min-width: 992px) {
+      margin-top: 40px;
+    }
+  }
+}

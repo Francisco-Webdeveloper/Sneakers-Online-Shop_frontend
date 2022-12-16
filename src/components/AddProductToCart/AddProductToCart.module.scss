@@ -1,12 +1,41 @@
 .addToCartContainer {
   margin: 24px 22px;
+  max-width: 500px;
+  @media (min-width: 992px) {
+    display: flex;
+    gap: 16px;
+  }
 
   .input {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    background-color: var(--neutral-light-grayish-blue);
+    padding: 4px 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
 
     p {
       margin-bottom: 0;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    @media (min-width: 992px) {
+      margin-bottom: 0;
+      flex: 1 1 auto;
+    }
+  }
+
+  .minusButton,
+  .plusButton {
+    border: none;
+    color: var(--primary-color-orange);
+    background-color: transparent;
+    font-size: 32px;
+    font-weight: 600;
+    &:hover {
+      opacity: 0.7;
     }
   }
 
@@ -21,12 +50,21 @@
     border-radius: 8px;
     color: #fff;
     background-color: var(--primary-color-orange);
+    box-shadow: 0px 3px 20px hsl(30deg 80% 67%);
+    &:hover {
+      opacity: 0.7;
+    }
 
     .cartIcon path {
       fill: #fff;
     }
     p {
       margin-bottom: 0;
+    }
+
+    @media (min-width: 992px) {
+      width: auto;
+      flex: 2 1 auto;
     }
   }
 }
