@@ -2,45 +2,108 @@ import styles from "./ProductImages.module.scss";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { SneakerImages } from "../../types/SneakerImages";
+import { useState } from "react";
 
 interface Props {
   images: SneakerImages;
 }
 
+interface imageInterface {
+  mainImage: string | undefined;
+  thumbnailImage: string | undefined;
+}
+
 const ProductImages = ({ images }: Props): JSX.Element => {
-  const { image1, image2, image3, image4 } = images;
+  const {
+    image1,
+    image2,
+    image3,
+    image4,
+    imageThumbnail1,
+    imageThumbnail2,
+    imageThumbnail3,
+    imageThumbnail4,
+  } = images;
+
+  const allImages = {
+    mainImages: [image1, image2, image3, image4],
+    thumbnailImages: [
+      imageThumbnail1,
+      imageThumbnail2,
+      imageThumbnail3,
+      imageThumbnail4,
+    ],
+  };
+
+  const [selectedImages, setSelectedImages] = useState<imageInterface>({
+    mainImage: image1,
+    thumbnailImage: imageThumbnail1,
+  });
+
+  const handleClick = (clickedImage?: string) => {
+    const clickedThumbnailImage = allImages.thumbnailImages.find(
+      (image) => image === clickedImage
+    );
+
+    setSelectedImages((prev) => ({
+      ...prev,
+      thumbnailImage: clickedThumbnailImage,
+    }));
+
+    allImages.thumbnailImages.forEach((imageThumbnail, index) => {
+      if (clickedThumbnailImage === imageThumbnail) {
+        setSelectedImages((prev) => ({
+          ...prev,
+          mainImage: allImages.mainImages[index],
+        }));
+      }
+    });
+  };
 
   return (
-    <Carousel fade>
-      <Carousel.Item>
+    <>
+      <div className={styles.carouselImages}>
+        <Carousel fade>
+          {allImages.mainImages.map((image, index) => {
+            return (
+              <Carousel.Item key={image}>
+                <img
+                  className={`${styles.imageContainer} ${
+                    styles[`imageContainer${index + 1}`]
+                  }`}
+                  src={image}
+                  alt="product"
+                />
+              </Carousel.Item>
+            );
+          })}
+        </Carousel>
+      </div>
+      <div className={styles.selectedImages}>
         <img
-          className={`${styles.imageContainer} ${styles.imageContainer1}`}
-          src={image1}
-          alt="product1"
+          className={styles.imageContainer}
+          src={selectedImages.mainImage}
+          alt="product"
         />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className={`${styles.imageContainer} ${styles.imageContainer2}`}
-          src={image2}
-          alt="product2"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className={`${styles.imageContainer} ${styles.imageContainer3}`}
-          src={image3}
-          alt="product3"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className={`${styles.imageContainer} ${styles.imageContainer4}`}
-          src={image4}
-          alt="product4"
-        />
-      </Carousel.Item>
-    </Carousel>
+        <div className={styles.thumbnailImagesContainer}>
+          {allImages.thumbnailImages.map((image) => {
+            return (
+              <img
+                key={image}
+                className={`${styles.thumbnailImage} ${
+                  image === selectedImages.thumbnailImage
+                    ? styles.selectedImage
+                    : ""
+                }`}
+                src={image}
+                onClick={() => handleClick(image)}
+                alt="product-thumbnail"
+              />
+            );
+          })}
+        </div>
+      </div>
+    </>
   );
 };
 
